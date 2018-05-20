@@ -1,0 +1,37 @@
+<%= render 'partial/navbar' %>
+<div class="container">
+  <div class="col-md-3">
+    <%= render 'partial/verticalnavbar' %>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="text-center">
+          <span style="font-size:24px;">料金の設定</span>
+        </div>
+      </div>
+
+      <div class="panel-body">
+
+        <%= form_for @listing do |f| %>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>一日当たりの料金</label>
+              <div class="input-group">
+                <div class="input-group-addon">円</div>
+                <%= f.text_field :price_per_day, placeholder: "例: 100", class: "form-control", required: "true" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "更新", class: "btn btn-danger" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

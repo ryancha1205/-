@@ -1,0 +1,41 @@
+<% if @reviews.count == 0 %>
+  <div class="text-center">
+    <h4>There is no review yet</h4>
+  </div>
+<% else %>
+  <% @reviews.order("id desc").each do |review| %>
+    <hr>
+    <div class="row">
+      <div class="col-md-2 text-center">
+        <div class="row">
+          <%= review.user.name %>
+        </div> 
+      </div>
+      <div class="col-md-10">
+        <div class="row-space-1">
+          <%= review.description %>
+        </div>
+        
+        <div>
+          <%= review.created_at.strftime("%Y年%m月%d日") %>
+        </div>
+        
+        <div>
+          <span class="pull-right">
+            <%= link_to "DELETE",[@listing,review],method: :delete, data: {confirm: "Are you sure?"},class:"btn btn-danger" if current_user && current_user = review.user %>
+            <!-- only current_user && reviewed user remove reviews -->
+          </span>
+        </div>
+      </div>
+    </div>
+  <%end%>
+<% end %>
+<!-- He is got a chip on his sholder -->
+<!-- It's a shame -->
+<!-- I'm a bit upset 섭섭하다 -->
+<!-- salty 삐지다 -->
+<!-- frustrated 답답하다, 어떻게 할지 모르겠다 -->
+<!-- stuffy 꽉 막혀서 답답하다 -->
+<!-- unfair 억울하다 -->
+<!-- run into -->
+<!-- subtle미한한 절묘한 -->
